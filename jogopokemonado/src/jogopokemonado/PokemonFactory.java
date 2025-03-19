@@ -4,10 +4,18 @@
  */
 package jogopokemonado;
 
-/**
- *
- * @author vinic
- */
 public class PokemonFactory {
-    
+
+    public Pokemon createPokemon(String type) {
+        switch (type.toLowerCase()) {
+            case "fire":
+                return new FirePokemon();
+            case "water":
+                return new WaterPokemon();
+            case "grass":
+                return new GrassPokemon();
+            default:
+                throw new IllegalArgumentException("Tipo de Pokémon desconhecido: " + type);
+        }
+    }
 }
